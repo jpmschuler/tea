@@ -77,6 +77,13 @@
 			"@ci:static"
 		],
 		"ci:composer:normalize": "@php ./tools/composer-normalize --dry-run",
+		"ci:coverage": [
+			"@ci:coverage:unit",
+			"@ci:coverage:functional"
+		],
+		"ci:coverage:functional": ".Build/vendor/bin/phpunit --whitelist Tests/Functional --coverage-php=coverage/functional.cov Tests/Functional",
+		"ci:coverage:merge": "@php ./tools/phpcov merge --clover=clover.xml coverage/",
+		"ci:coverage:unit": ".Build/vendor/bin/phpunit --whitelist Tests/Unit --coverage-php=coverage/unit.cov Tests/Unit",
 		"ci:dynamic": [
 			"@ci:tests"
 		],
@@ -108,15 +115,8 @@
 			"@ci:tests:unit",
 			"@ci:tests:functional"
 		],
-		"ci:coverage": [
-			"@ci:coverage:unit",
-			"@ci:coverage:functional"
-		],
 		"ci:tests:functional": ".Build/vendor/bin/phpunit -c Tests/Functional/phpunit.xml",
 		"ci:tests:unit": ".Build/vendor/bin/phpunit -c Tests/Unit/phpunit.xml",
-		"ci:coverage:unit": ".Build/vendor/bin/phpunit --whitelist Tests/Unit --coverage-php=coverage/unit.cov Tests/Unit",
-		"ci:coverage:functional": ".Build/vendor/bin/phpunit --whitelist Tests/Functional --coverage-php=coverage/functional.cov Tests/Functional",
-		"ci:coverage:merge": "@php ./tools/phpcov merge --clover=clover.xml coverage/",
 		"ci:ts:lint": "@php ./tools/typo3-typoscript-lint -c Configuration/TsLint.yml --ansi -n --fail-on-warnings -vvv Configuration/TypoScript",
 		"ci:yaml:lint": "find . ! -path '*.Build/*' ! -path '*Resources/Private/node_modules/*' -name '*.yml' | xargs php ./tools/yaml-lint",
 		"fix:php": [

@@ -9,5 +9,5 @@
   <phar name="j13k/yaml-lint" version="^1.1.4" installed="1.1.4" location="./tools/yaml-lint" copy="true"/>
   <phar name="martin-helmich/typo3-typoscript-lint" version="^2.4.1" installed="2.4.1"  location="./tools/typo3-typoscript-lint" copy="true"/>
   <phar name="phpstan" version="^0.12.81" installed="0.12.81" location="./tools/phpstan" copy="true"/>
-  <phar name="phpcov" version="^8.2.0" installed="8.2.0" location="./tools/phpcov" copy="true"/>
+  <phar name="phpcov" version="^5.0.0" installed="5.0.0" location="./tools/phpcov" copy="true"/>
 </phive>
